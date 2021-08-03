@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="container-fluid p-0">
+          <div class="alert mb-3 {{ message.tags }} alert-dismissible" role="alert" >
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="row">
+
+    {% for image in paged_images %}
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{{image.image.url}}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: {{image.album.name}}</small>
+            </div>
+            <a href="{% url 'image' image.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+            <div class="btn-group">
+                <a href="{% url 'edit-img' image.id %}" class="btn btn-outline-warning btn-sm m-1">Edit</a>
+                <a href="{% url 'delete-img' image.id %}" class="btn btn-outline-danger btn-sm m-1">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+
+    <div class="col-md-8">
+        <h2 class="text-center my-5">Welcome to the WebGallery!</h2>
+        <div class="container mt-5">
+            <h3 class="">You have no images, so let's start adding them!</h3>
+            <h3 class="">Press <a class="add-pic text-decoration-none" href="{% url 'add' %}" class="">Add Image</a> here or choose it from menu</h3>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% if paged_images.has_other_pages %}
+<nav aria-label="...">
+  <ul class="pagination justify-content-center">
+    {% if paged_images.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ paged_images.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+    {% endif %}
+    {% for i in paged_images.paginator.page_range %}
+      {% if paged_images.number == i %}
+        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only"></span></span></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if paged_images.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ paged_images.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+    {% endif %}
+  </ul>
+</nav>
+
+{% endif %}
+{% endblock %}

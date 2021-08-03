@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add image</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body class="m-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 class="m-3">Add an image</h3><br/>
+                    <form method='POST' action="" id="filevalidation" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group m-3">
+                            <label class="mb-2">Description</label>
+                            <input required name="description" type="text" placeholder="Enter a description" class="form-control">
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label class="mb-2">Select an album</label>
+                            <select name="album" class="form-control">
+                                <option value="none">Select an album...</option>
+
+                                {% for album in albums %}
+                                    <option value='{{album.id}}'>{{album.name}}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label class="mb-2">Create a new album</label>
+                            <input name="album_new" type="text" placeholder="Create a new album" class="form-control">
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label class="mb-2">Upload image</label>
+                            <input required name="images" type="file" multiple class="form-control-file px-1">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'gallery' %}" class="btn btn-outline-dark px-3 m-3">Go Back</a>
+                            <button type="submit" class="btn btn-primary px-5 m-3">Upload</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+    <script src="{% static 'jss/validate.js' %}"></script>
+</body>
+</html>

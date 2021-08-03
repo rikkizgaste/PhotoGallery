@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="container-fluid p-0">
+              <div class="alert mx-4 mb-3 {{ message.tags }} alert-dismissible" role="alert" >
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+  {% if form.errors %}
+    <div class="container-fluid p-0">
+      <div class="mx-4 mb-3 alert alert-danger alert-success" role="alert" >
+        Prisijungimo klaida, bandykite dar kartą!
+      </div>
+    </div>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+    <div class="container-fluid p-0">
+      <div class="mx-4 mb-3 alert alert-danger alert-success" role="alert" >
+        Neturite prieigos prie šios informacijos. Turite prisijungti
+      </div>
+    </div>
+    {% endif %}
+  {% endif %}
+
+    <div class="container">
+        <h3 class="m-1">Login</h3><br/>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group m-1">
+                <label class="mb-2" for="username">Username</label>
+                <input name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+            </div>
+            <div class="form-group m-1">
+                <label class="mb-2" for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" aria-describedby="pwdHelp">
+            </div>
+            <button type="submit" value="Login" class="btn btn-primary register-button mt-2 m-1 px-5">Login</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <p class="m-1"><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+    </div>
+
+{% endblock %}

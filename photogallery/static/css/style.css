@@ -1,0 +1,74 @@
+.image-thumbnail {
+    object-fit: cover;
+    height: 200px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dimgrey {
+    background-color: rgba(105, 105, 105, 0.7);
+    color: white;
+}
+
+.btn-outline-secondary {
+    border-color: rgba(105, 105, 105, 0.6);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: rgba(105, 105, 105, 1);
+}
+
+.btn-outline-secondary:hover {
+    border-color: rgba(95, 158, 160, 1);
+    background-color: rgba(95, 158, 160, 1);
+}
+
+.btn-outline-danger {
+    border-color: rgba(105, 105, 105, 1);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: rgba(105, 105, 105, 1);
+}
+
+.btn-outline-warning {
+    border-color: rgba(105, 105, 105, 1);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: rgba(105, 105, 105, 1);
+}
+
+.btn-outline-warning:hover {
+    color: #FFF;
+}
+
+.btn-outline-dark {
+    border-color: rgba(95, 158, 160, 1);
+    background-color: rgba(95, 158, 160, 0.3);
+    color: rgba(105, 105, 105, 1);
+}
+
+.btn-outline-dark:hover {
+    border-color: rgba(95, 158, 160, 1);
+    background-color: rgba(95, 158, 160, 1);
+}
+
+.btn-primary {
+    border-color: rgba(95, 158, 160, 1);
+    background-color: rgba(95, 158, 160, 0.9);
+}
+
+.btn-primary:hover {
+    border-color: rgba(23, 157, 162, 1);
+    background-color: rgba(23, 157, 162, 1);
+}
+
+.stl-txt {
+    font-weight: 500;
+}
+
+.add {
+    background-color: rgba(95, 158, 160, 1);
+}
+
+.add-pic {
+    color: rgba(95, 158, 160, 1);
+
+}

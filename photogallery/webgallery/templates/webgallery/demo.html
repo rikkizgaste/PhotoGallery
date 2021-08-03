@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="container-fluid p-0">
+          <div class="alert mb-3 {{ message.tags }} alert-dismissible" role="alert" >
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-01.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Plants</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-02.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Food</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-03.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Wedding</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-04.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: You</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-05.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Home</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-06.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Nature</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-07.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Nature</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-08.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Design</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static 'demo/tm-img-09.jpg' %}" class="image-thumbnail" alt="...">
+            <div class="card-body">
+                <small>Album: Birds</small>
+            </div>
+            <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

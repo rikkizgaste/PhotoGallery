@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="container-fluid p-0">
+              <div class="alert mx-4 mb-3 {{ message.tags }} alert-dismissible" role="alert" >
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="container register">
+        <h3 class="m-1">Registration</h3><br/>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group m-1">
+                <label for="username">User name</label>
+                <input required name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+                <small id="usernameHelp" class="form-text text-muted">Up to 150 symbols.</small>
+            </div>
+            <div class="form-group m-1">
+                <label for="exampleInputEmail1">Email</label>
+                <input required name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We're using this email just for password. </small>
+            </div>
+            <div class="form-group m-1">
+                <label for="password">Password</label>
+                <input required name="password" type="password" class="form-control" id="password" aria-describedby="pwdHelp">
+                <small id="pwdHelp" class="form-text text-muted">At least 8 symbols. Numbers only not allowed.</small>
+            </div>
+            <div class="form-group m-1">
+                <label for="password2">Repeat password</label>
+                <input required name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
+            </div>
+            <button type="submit" class="btn btn-primary register-button m-1 px-5">Register</button>
+        </form>
+        <p class="m-1">If you're already registered, <a href="/accounts/login"><strong>login here.</strong></a></p>
+    </div>
+
+{% endblock %}
